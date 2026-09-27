@@ -1,0 +1,51 @@
+{
+  "chainId": 11155111,
+  "repoUrl": "https://github.com/identity-md-launches/launch-324-referrallist",
+  "version": 1,
+  "launchId": "e36a4566-5869-49c7-86d3-43b7752f8b00",
+  "manifest": {
+    "kind": "evm_project",
+    "pool": {
+      "fee": 3000,
+      "tickSpacing": 60,
+      "initialPrice": "79228162514264337593543950336",
+      "pairedCurrency": "0x0000000000000000000000000000000000000000"
+    },
+    "notes": "Sepolia-only referral tracking test toy, not an investment or earning scheme. Deploy LaunchToken first, then ReferralList with the token address. ReferralList needs no token balance at deployment and has no owner or initialization calls. Users obtain INVT by swapping Sepolia ETH in the factory-seeded ETH/INVT pool, which has no hook. Joining requires approval for 1,000 INVT; with a referrer, 200 INVT becomes claimable and 800 INVT is transferred to the dead address; without a referrer, all 1,000 INVT is transferred there. Claims are pull withdrawals. Self-referral through another wallet is an accepted 20% discount. Anyone may call burnExcess to forward unsolicited INVT to the dead address without touching referral credit. Dead-address transfers do not reduce totalSupply. The factory supplies the LP and MerkleDistributor. initialPrice is decimal sqrtPriceX96; a pinned policy specifying initialMarketCapWei determines the effective opening price. Policy and signed artifact linkage are handled by services.",
+    "token": {
+      "name": "Invite",
+      "symbol": "INVT",
+      "contract": "LaunchToken",
+      "decimals": 18
+    },
+    "contracts": [
+      {
+        "contract": "ReferralList",
+        "constructorArgs": [
+          "$token"
+        ]
+      }
+    ]
+  },
+  "contracts": [
+    {
+      "name": "LaunchToken",
+      "txHash": "0x2763781775391777b1f4b338a354116f62191018fde2e89c40c377a153c3e4da",
+      "abiHash": "f36d2fe28b62f817a4fba0b78bb501b41895eada3982280273c063ad8183f577",
+      "address": "0xcec7717d01ae80eea14c93a5631a13b931ec3fed",
+      "blockNumber": 11791675,
+      "creationCodeHash": "fa250438af664cc5b9c02d54aad61f9b7916a6c2002f6aef48030ab24c77ebf5"
+    },
+    {
+      "name": "ReferralList",
+      "txHash": "0x2763781775391777b1f4b338a354116f62191018fde2e89c40c377a153c3e4da",
+      "abiHash": "0956a693ea6eb0bfea32e442d75104efb0ebce3e847b019f707b87e0e56b180b",
+      "address": "0x74ff86d19537b08b25e677ec9571c13ed5b4238e",
+      "blockNumber": 11791675,
+      "creationCodeHash": "4b7991e5aad23a04b414a5c4b99950ef36ab418122de2a6fd7fa340a9dc590b6"
+    }
+  ],
+  "sourceCommit": "7f5b10f2107262640adf4985c954e3cb3e6637ca",
+  "abiInstructions": "Build ABIs from this exact source commit; compare canonicalKeccak(abi) with abiHash. Verify deployed code on the stated chain before enabling transactions.",
+  "attestationHash": "1304dd524bd5cf46cb821ecf13e54286aac987ad48346b159743e875fc3b2c5b"
+}

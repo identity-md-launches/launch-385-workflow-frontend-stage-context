@@ -1,0 +1,37 @@
+{
+  "name": "lab-referral-list-web",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "One-page frontend for the Invite (INVT) ReferralList on Sepolia. Static export lives in ../dist.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node scripts/write-manifest.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.node.json --noEmit",
+    "test": "vitest run",
+    "preview": "vite preview",
+    "manifest": "node scripts/write-manifest.mjs",
+    "manifest:check": "node scripts/write-manifest.mjs --check"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.90.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "viem": "^2.37.0",
+    "wagmi": "^2.17.0"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.0",
+    "@types/node": "^24.5.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "jsdom": "^27.0.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.1.0",
+    "vitest": "^3.2.0"
+  }
+}
