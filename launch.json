@@ -1,0 +1,22 @@
+{
+  "kind": "evm_project",
+  "token": {
+    "contract": "LaunchToken",
+    "name": "Invite",
+    "symbol": "INVT",
+    "decimals": 18
+  },
+  "contracts": [
+    {
+      "contract": "ReferralList",
+      "constructorArgs": ["$token"]
+    }
+  ],
+  "pool": {
+    "pairedCurrency": "0x0000000000000000000000000000000000000000",
+    "fee": 3000,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "notes": "Sepolia-only referral tracking test toy, not an investment or earning scheme. Deploy LaunchToken first, then ReferralList with the token address. ReferralList needs no token balance at deployment and has no owner or initialization calls. Users obtain INVT by swapping Sepolia ETH in the factory-seeded ETH/INVT pool, which has no hook. Joining requires approval for 1,000 INVT; with a referrer, 200 INVT becomes claimable and 800 INVT is transferred to the dead address; without a referrer, all 1,000 INVT is transferred there. Claims are pull withdrawals. Self-referral through another wallet is an accepted 20% discount. Anyone may call burnExcess to forward unsolicited INVT to the dead address without touching referral credit. Dead-address transfers do not reduce totalSupply. The factory supplies the LP and MerkleDistributor. initialPrice is decimal sqrtPriceX96; a pinned policy specifying initialMarketCapWei determines the effective opening price. Policy and signed artifact linkage are handled by services."
+}
